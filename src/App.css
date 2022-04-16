@@ -85,3 +85,8 @@ button {
 .btn:hover {
   background-color: #dc156f;
 }
+
+/* some global for swiper  */
+.swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events.swiper-backface-hidden.mySwiper {
+  padding: 4rem 0rem;
+}
