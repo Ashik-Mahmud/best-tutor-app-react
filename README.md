@@ -13,4 +13,22 @@ This is Home Tutor react web application here just previews home tutor services 
 - Firebase for Authentication
 - React Hot Toast for fancy message
 - React Styled Component
-- and many more...
+- React Swiper for sliding
+- React Reveal Animation
+
+## Required Features
+
+- User Can Authenticate using Google, Github, Facebook as well
+- User can see the details of services
+- User also can create their own account write on form
+- user also can get a awesome user experiences for animation and fancy kind of things
+- user can see this application on their Mobile Phone because this is completely mobile responsive.
+-
+
+# Application link on
+
+## Preview Screenshot About this Project
+
+![imageScreenshot](./preview.png)
+
+> Thanks for reach out me on github.
