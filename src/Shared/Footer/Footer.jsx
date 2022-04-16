@@ -50,6 +50,21 @@ const FooterContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+      a {
+        order: 1;
+      }
+      p {
+        order: 2;
+      }
+      ul {
+        order: 3;
+      }
+    }
     p {
       color: #888;
     }
