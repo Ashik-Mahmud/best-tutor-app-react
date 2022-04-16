@@ -4,6 +4,7 @@
     "name": "Teach SSC Student",
     "desc": "I have done 5 kind of separate batches of SSC. I have been working for 5 years of teaching students around our country.",
     "price": 400,
+    "batch": "6th",
     "subject": ["Chemistry", "Physics", "Higher Math"],
     "image": "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2021/04/09/ssc_exam_2.jpg?itok=E_UJ9DkX"
   },
@@ -13,6 +14,7 @@
     "name": "Teach HSC Student",
     "desc": "we already have huge knowledge to teach higher educational student and now running out 3 batch of separate times.",
     "price": 600,
+    "batch": "3th",
     "subject": ["Chemistry", "Physics", "ICT"],
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbfxGSBrM8Y8f3PZmwfScjdeCoz9-24KnUt7KGcWkErABLAIp_qsIUFOPWnaKIMHA62M&usqp=CAU"
   },
@@ -21,6 +23,7 @@
     "name": "Teach University Student",
     "desc": "I just finished one of my another university batch and starting new batch of it so I already specialized of teaching university student.",
     "price": 1200,
+    "batch": "2th",
     "subject": ["Business & Marketing", "Mathematics"],
     "image": "https://empowering-teachers.eu/wp-content/themes/yootheme/cache/home-banner-2-d0161e86.jpeg"
   }
