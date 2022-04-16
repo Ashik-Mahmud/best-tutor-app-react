@@ -6,7 +6,7 @@ const NewsLetter = () => {
     <NewsLetterContainer>
       <div className="container">
         <div className="newsletter-content">
-          <h1>NewsLetter</h1>
+          <h1>Stay Up to Date</h1>
           <span>Ensure you don't give you span message </span>
           <form action="" className="form-wrapper">
             <div className="input-group">
@@ -27,7 +27,7 @@ const NewsLetter = () => {
 
 const NewsLetterContainer = styled.div`
   position: relative;
-  position: relative;
+  margin-top: 3rem;
   .newsletter-content {
     text-align: center;
     margin: 1rem 5rem;

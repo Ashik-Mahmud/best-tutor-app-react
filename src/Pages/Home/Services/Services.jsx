@@ -8,7 +8,7 @@ const Services = () => {
       <ServicesContainer>
         <div className="container">
           <div className="title">
-            <h2>What's done?</h2>
+            <h2>What will you get?</h2>
             <span>get your suitable packages and enrolled.</span>
           </div>
           <div className="services-content">
