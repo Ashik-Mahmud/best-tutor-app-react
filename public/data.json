@@ -1,9 +1,16 @@
 [
   {
     "id": 1,
-    "name": "Higher Education Student",
+    "name": "Teach HSC Student",
     "desc": "we already have huge knowledge to teach higher educational student and now running out 3 batch of separate times.",
     "price": 600,
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbfxGSBrM8Y8f3PZmwfScjdeCoz9-24KnUt7KGcWkErABLAIp_qsIUFOPWnaKIMHA62M&usqp=CAU"
+  },
+  {
+    "id": 2,
+    "name": "Teach University Student",
+    "desc": "I just finished one of my another university batch and starting new batch of it so I already specialized of teaching university student.",
+    "price": 1200,
+    "image": "https://empowering-teachers.eu/wp-content/themes/yootheme/cache/home-banner-2-d0161e86.jpeg"
   }
 ]
