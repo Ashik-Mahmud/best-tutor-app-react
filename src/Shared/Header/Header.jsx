@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
-import { BsGrid } from "react-icons/bs";
+import { BsGrid, BsGrid1X2 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 const Header = () => {
+  const [isNav, setIsNav] = useState(false);
   return (
     <NavBar>
       <div className="container">
@@ -12,7 +13,7 @@ const Header = () => {
           <Link to="/" className="logo">
             <GiTeacher /> Best <span className="colorize">Tutor</span>
           </Link>
-          <div className="primary-menu">
+          <div className={`primary-menu ${isNav && "active"}`}>
             <ul>
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -30,8 +31,8 @@ const Header = () => {
               <AiOutlineLogin /> Login
             </button>
           </div>
-          <div className="menu-icon">
-            <BsGrid />
+          <div className="menu-icon" onClick={() => setIsNav((prev) => !prev)}>
+            {isNav ? <BsGrid1X2 /> : <BsGrid />}
           </div>
         </nav>
       </div>
@@ -57,6 +58,7 @@ const NavBar = styled.header`
   }
   .primary-menu {
     position: relative;
+
     ul {
       display: flex;
       align-items: center;
@@ -68,6 +70,29 @@ const NavBar = styled.header`
         &.active {
           color: var(--primary-color);
         }
+      }
+    }
+
+    /* for responsive  */
+    @media (max-width: 768px) {
+      position: fixed;
+      left: -100%;
+      top: 0%;
+      width: 50%;
+      background-color: #ffffffc9;
+      height: 100%;
+      z-index: 2;
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(4px);
+      padding: 3rem;
+      transition: all 0.5s ease;
+      &.active {
+        left: 0%;
+      }
+      ul {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
       }
     }
   }
