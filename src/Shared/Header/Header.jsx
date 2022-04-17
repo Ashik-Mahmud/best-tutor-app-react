@@ -1,9 +1,14 @@
 import { signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import {
+  AiOutlineCloseCircle,
+  AiOutlineLogin,
+  AiOutlineLogout,
+} from "react-icons/ai";
 import { BiRefresh } from "react-icons/bi";
 import { BsGrid, BsGrid1X2 } from "react-icons/bs";
+import { FiCheckCircle } from "react-icons/fi";
 import { GiTeacher } from "react-icons/gi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -59,7 +64,23 @@ const Header = () => {
                   <div>
                     <span className="">
                       {user?.displayName ? (
-                        user?.displayName
+                        <>
+                          <span className="d-flex">
+                            {user?.displayName}{" "}
+                            {user?.emailVerified ? (
+                              <small className="verify-status" title="Verified">
+                                <FiCheckCircle />
+                              </small>
+                            ) : (
+                              <small
+                                className="notVerify-status"
+                                title="Not Verified"
+                              >
+                                <AiOutlineCloseCircle />
+                              </small>
+                            )}
+                          </span>
+                        </>
                       ) : (
                         <small className="d-flex gap not-name">
                           Not Available
@@ -184,6 +205,16 @@ const NavBar = styled.header`
       span {
         font-size: 1rem;
       }
+    }
+    .verify-status,
+    .notVerify-status {
+      font-size: 0.8rem;
+      display: inline;
+      color: var(--primary-color);
+      cursor: pointer;
+    }
+    .notVerify-status {
+      color: var(--primary-color-alt);
     }
     img {
       width: 50px;

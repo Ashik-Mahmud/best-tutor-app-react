@@ -1,4 +1,8 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { VscSignIn } from "react-icons/vsc";
@@ -28,11 +32,16 @@ const SignUp = () => {
     confirmPassword: "",
   });
   const formRef = useRef(null);
+
   /* handle sign up form  */
   const handleSignUpForm = async (event) => {
     event.preventDefault();
     if (!formInput.name) return toast.error("Name field is required.");
     if (!formInput.phone) return toast.error("Phone field is required.");
+    if (!/[[0-9]/.test(formInput.phone))
+      return toast.error("Phone must need numbers.");
+    if (formInput.phone.length < 11)
+      return toast.error("Phone number must need 11 chars.");
     if (!formInput.email) return toast.error("Email field is required.");
     if (!formInput.password) return toast.error("Password field is required");
     if (!formInput.confirmPassword)
@@ -51,11 +60,15 @@ const SignUp = () => {
           phoneNumber: formInput.phone,
         }).then(() => {
           toast.success("User created successfully done.");
-          formRef.current.reset();
+
+          sendEmailVerification(res.user).then(() => {
+            toast.success(
+              `We sent you email for verification on ${formInput.email}`
+            );
+          });
         });
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.message.split(":")[1]);
       });
   };

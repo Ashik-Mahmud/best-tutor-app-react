@@ -1,7 +1,10 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { VscSignIn } from "react-icons/vsc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../App";
+import { auth } from "../../../Firebase/Firebase.config";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "../Styles/Styles.css";
 const SignIn = () => {
@@ -17,9 +20,26 @@ const SignIn = () => {
   }, [from, navigate, isAuth]);
 
   const [isReset, setIsReset] = useState(false);
+
+  /* handle login form  */
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLoginForm = async (event) => {
+    event.preventDefault();
+    if (!email) return toast.error("Email field is required.");
+    if (!password) return toast.error("Password field is required.");
+
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        toast.success("Logged In successfully done.");
+      })
+      .catch((err) => toast.error(err.message.split(":")[1]));
+  };
+
   return (
     <section className="signIn-wrapper">
-      <form action="/" className="form-wrapper">
+      <form action="/" className="form-wrapper" onSubmit={handleLoginForm}>
         <h3>
           {isReset ? (
             <>
@@ -35,10 +55,10 @@ const SignIn = () => {
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            required
             placeholder="Email"
             name="email"
             id="email"
+            onBlur={(event) => setEmail(event.target.value)}
           />
         </div>
         {!isReset && (
@@ -46,10 +66,10 @@ const SignIn = () => {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              required
               placeholder="Password"
               name="password"
               id="password"
+              onBlur={(event) => setPassword(event.target.value)}
             />
           </div>
         )}
