@@ -1,12 +1,27 @@
-import React, { useState } from "react";
-import { AiOutlineLogin } from "react-icons/ai";
+import { signOut } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { BsGrid, BsGrid1X2 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { AuthContext } from "../../App";
+import { auth } from "../../Firebase/Firebase.config";
 const Header = () => {
+  const { isAuth, user, setIsAuth } = useContext(AuthContext);
   const [isNav, setIsNav] = useState(false);
   const navigate = useNavigate();
+
+  /* log out user */
+  const LogOut = () => {
+    signOut(auth).then(() => {
+      toast.success("Log out successfully done.");
+      setIsAuth(false);
+      navigate("/sign-in");
+    });
+  };
+
   return (
     <NavBar>
       <div className="container">
@@ -28,9 +43,39 @@ const Header = () => {
             </ul>
           </div>
           <div className="btn-group">
-            <button className="btn d-flex" onClick={() => navigate("/sign-in")}>
-              <AiOutlineLogin /> Login
-            </button>
+            {isAuth ? (
+              <>
+                <div className="profile">
+                  <img
+                    width={50}
+                    src={
+                      user?.photoURL
+                        ? user?.photoURL
+                        : "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+                    }
+                    alt={user?.displayName}
+                  />
+                  <div>
+                    <span className="">{user?.displayName}</span>
+                    <small title={user?.email}>
+                      {user?.email
+                        ? user?.email.slice(0, 10) + "..."
+                        : "not available"}
+                    </small>
+                  </div>
+                </div>
+                <button className="btn logOut d-flex" onClick={LogOut}>
+                  <AiOutlineLogout /> Log out
+                </button>
+              </>
+            ) : (
+              <button
+                className="btn d-flex"
+                onClick={() => navigate("/sign-in")}
+              >
+                <AiOutlineLogin /> Login
+              </button>
+            )}
           </div>
           <div className="menu-icon" onClick={() => setIsNav((prev) => !prev)}>
             {isNav ? <BsGrid1X2 /> : <BsGrid />}
@@ -50,6 +95,9 @@ const NavBar = styled.header`
     align-items: center;
     justify-content: space-between;
     position: relative;
+  }
+  .logOut {
+    background: var(--primary-color-alt);
   }
   .logo {
     font-size: 1.3rem;
@@ -102,6 +150,29 @@ const NavBar = styled.header`
     font-size: 1.1rem;
     display: none;
     @media (max-width: 768px) {
+      display: block;
+    }
+  }
+  .btn-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 3px solid #ccc;
+      overflow: hidden;
+    }
+    span {
+      display: block;
+    }
+    small {
       display: block;
     }
   }

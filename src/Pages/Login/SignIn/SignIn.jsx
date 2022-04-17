@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { VscSignIn } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../App";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "../Styles/Styles.css";
 const SignIn = () => {
+  /* if user has redirect on desire page */
+  const { isAuth } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (isAuth) {
+      navigate(from, { replace: true });
+    }
+  }, [from, navigate, isAuth]);
+
   const [isReset, setIsReset] = useState(false);
   return (
     <section className="signIn-wrapper">
