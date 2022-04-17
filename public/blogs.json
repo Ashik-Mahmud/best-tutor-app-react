@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Difference between authorization and authentication?",
+    "desc": "In the digital world, authentication and authorization accomplish these same goals. Authentication is used to verify that users really are who they represent themselves to be. Once this has been confirmed, authorization is then used to grant the user permission to access different levels of information and perform specific functions, depending on the rules established for different types of users.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknCStbMFbCfZ4MGisC7Lz-Ypa1dAH833sqXPWMnOAU8Iwhl3PchZFN5sZ6Mgz9zWwYRk&usqp=CAU"
+  },
+  {
+    "id": 2,
+    "title": "Why are you using firebase ? What other options do you have to implement authentication?",
+    "desc": "Firebase is one of the most used and powerful easy to use developer friendly services which one provide google. Now this time authentication is one of the features which one has most of the modern website and application. Firebase allows us to give you authentication services using modern tools and social like Google, Facebook, Twitter, Github, Apple etc also you can authenticate use of your own information like email, name, password, photo etc. Besides it also allows us to do the whole operation on Back-end. You will get the tons of providers which one allows us to authenticate of our application or website. Let's say AuthO could be the best authentication system alternative of firebase. It kinds of like Okta, JSON web token, Amazon Incognito, Keycloak, passport, mongodb as well",
+    "image": "https://firebase.google.com/images/social.png"
+  },
+  {
+    "id": 3,
+    "title": "What other services does firebase provide other than authentication?",
+    "desc": "Firebase is  provider which one provides multi services. There are many kind of services provides firebase like Realtime Database services, Storage Services, Authentication Services, Hosting Services, Remote Config, Cloud Messaging, Test lab, Crash reporting. You can do any thing and any stuff which one you wanna create of your imagination. It's all about solutions back-end and front-end you can create a full stack project using this firebase all the services never need go out there. The coolest thing is all the services is easy to use and developer friendly and well maintaining of documentations. As a web developer most of the time we need to use the fewer services from firebase. Let's say If you wanna create a full stack project you need to use Firestore database for storing your data and also will need storage services to store your image, pdf kind of file and if you also use the authentication services you do and the last one wanna hosting your app or website you need use the hosting services of this platform. That's it.",
+    "image": "https://www.tristatetechnology.com/tristate-website/blog/wp-content/uploads/2019/06/firebase11.jpg"
+  }
+]
