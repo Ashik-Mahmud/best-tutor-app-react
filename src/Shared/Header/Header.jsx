@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { BiRefresh } from "react-icons/bi";
 import { BsGrid, BsGrid1X2 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -56,7 +57,22 @@ const Header = () => {
                     alt={user?.displayName}
                   />
                   <div>
-                    <span className="">{user?.displayName}</span>
+                    <span className="">
+                      {user?.displayName ? (
+                        user?.displayName
+                      ) : (
+                        <small className="d-flex gap not-name">
+                          Not Available
+                          <span
+                            title="Reload"
+                            className="colorize cursor-pointer "
+                            onClick={() => window.location.reload()}
+                          >
+                            <BiRefresh />
+                          </span>
+                        </small>
+                      )}
+                    </span>
                     <small title={user?.email}>
                       {user?.email
                         ? user?.email.slice(0, 10) + "..."
@@ -162,6 +178,13 @@ const NavBar = styled.header`
     display: flex;
     align-items: center;
     gap: 1rem;
+    .not-name {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 1rem;
+      }
+    }
     img {
       width: 50px;
       height: 50px;
