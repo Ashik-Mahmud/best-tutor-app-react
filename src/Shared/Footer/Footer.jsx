@@ -17,7 +17,7 @@ const Footer = () => {
         <FooterContainer>
           <div className="container">
             <div className="footer-content">
-              <p>&copy; Copyright by 2021</p>
+              <p>&copy; Copyright by {new Date().getFullYear()}</p>
               <Link to="/" className="d-flex">
                 <div className="icon">
                   <GiTeacher />
