@@ -29,7 +29,7 @@ function App() {
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/checkout' element={<RequireAuth><CheckOut /></RequireAuth>} />
+          <Route path='/checkout/:serviceId' element={<RequireAuth><CheckOut /></RequireAuth>} />
           <Route path='/service-detail/:serviceId' element={<ServiceDetails />} />
 
           {/* route for 404 */}

@@ -30,7 +30,7 @@ const Service = ({ id, name, price, image, batch }) => {
             </button>
             <button
               className="d-flex btn"
-              onClick={() => navigate("/checkout")}
+              onClick={() => navigate(`/checkout/${id}`)}
             >
               Enrolled <BsCheckAll />
             </button>

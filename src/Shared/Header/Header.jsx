@@ -260,11 +260,11 @@ const NavBar = styled.header`
         pointer-events: none;
         transition: all 0.4s ease;
       }
-    }
-    &:hover .profile-content {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0px);
-      pointer-events: all;
+      &:hover .profile-content {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px);
+        pointer-events: all;
+      }
     }
   }
 `;
