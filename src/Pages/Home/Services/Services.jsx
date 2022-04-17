@@ -1,23 +1,25 @@
 import React from "react";
 import { Fade } from "react-reveal";
 import styled from "styled-components";
+import useServices from "../../../Hooks/useServices";
 import Service from "./Service/Service";
 
 const Services = () => {
+  const [services] = useServices();
   return (
     <section id="services">
       <ServicesContainer>
         <div className="container">
           <Fade bottom distance="20px">
             <div className="title">
-              <h2>What will you get?</h2>
+              <h2>What will you get? {services.length}</h2>
               <span>get your suitable packages and enrolled.</span>
             </div>
           </Fade>
           <div className="services-content">
-            <Service />
-            <Service />
-            <Service />
+            {services.map((service) => (
+              <Service key={service.id} {...service} />
+            ))}
           </div>
         </div>
       </ServicesContainer>

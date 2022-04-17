@@ -3,31 +3,28 @@ import { BsCheckAll } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-const Service = () => {
+const Service = ({ id, name, price, image, batch }) => {
   const navigate = useNavigate();
   return (
     <Fade bottom distance="30px">
       <ServiceCard>
         <div className="image">
-          <img
-            src="https://empowering-teachers.eu/wp-content/themes/yootheme/cache/home-banner-2-d0161e86.jpeg"
-            alt="img"
-          />
+          <img src={image} alt={name} />
         </div>
         <div className="details">
           <div className="inner-details">
             <div>
-              <h3>Tech HSC student</h3>
-              <span className="colorize">400/month</span>
+              <h3>{name}</h3>
+              <span className="colorize">{price}/month</span>
             </div>
             <div className="batch" title="Batch">
-              6th Batch
+              {batch} Batch
             </div>
           </div>
           <div className="btn-group">
             <button
               className="btn"
-              onClick={() => navigate("/service-detail/1")}
+              onClick={() => navigate(`/service-detail/${id}`)}
             >
               View Details
             </button>
