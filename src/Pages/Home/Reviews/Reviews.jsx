@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 import styled from "styled-components";
 import { Pagination } from "swiper";
 import "swiper/css";
@@ -10,10 +11,12 @@ const Reviews = () => {
   return (
     <ReviewsContainer>
       <div className="container">
-        <div className="title">
-          <h2>What's students says?</h2>
-          <span>feedback about of teacher which one teach them.</span>
-        </div>
+        <Fade bottom distance="30px">
+          <div className="title">
+            <h2>What's students says?</h2>
+            <span>feedback about of teacher which one teach them.</span>
+          </div>
+        </Fade>
         <div className="reviews-content">
           <Swiper
             slidesPerView={1}

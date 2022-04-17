@@ -1,27 +1,30 @@
 import React from "react";
+import { Fade } from "react-reveal";
 import styled from "styled-components";
 
 const NewsLetter = () => {
   return (
-    <NewsLetterContainer>
-      <div className="container">
-        <div className="newsletter-content">
-          <h1>Stay Up to Date</h1>
-          <span>Ensure you don't give you span message </span>
-          <form action="" className="form-wrapper">
-            <div className="input-group">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email enter"
-              />
-              <button className="btn">Send</button>
-            </div>
-          </form>
+    <Fade bottom distance="30px">
+      <NewsLetterContainer>
+        <div className="container">
+          <div className="newsletter-content">
+            <h1>Stay Up to Date</h1>
+            <span>Ensure you don't give you span message </span>
+            <form action="" className="form-wrapper">
+              <div className="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email enter"
+                />
+                <button className="btn">Send</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </NewsLetterContainer>
+      </NewsLetterContainer>
+    </Fade>
   );
 };
 

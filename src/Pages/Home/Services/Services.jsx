@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 import styled from "styled-components";
 import Service from "./Service/Service";
 
@@ -7,10 +8,12 @@ const Services = () => {
     <section id="services">
       <ServicesContainer>
         <div className="container">
-          <div className="title">
-            <h2>What will you get?</h2>
-            <span>get your suitable packages and enrolled.</span>
-          </div>
+          <Fade bottom distance="20px">
+            <div className="title">
+              <h2>What will you get?</h2>
+              <span>get your suitable packages and enrolled.</span>
+            </div>
+          </Fade>
           <div className="services-content">
             <Service />
             <Service />

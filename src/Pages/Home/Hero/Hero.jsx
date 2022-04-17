@@ -5,6 +5,7 @@ import {
   BsFacebook,
   BsTwitter,
 } from "react-icons/bs";
+import { Fade } from "react-reveal";
 import styled from "styled-components";
 const Hero = () => {
   return (
@@ -13,35 +14,41 @@ const Hero = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
-              <span>Get you best teacher from here</span>
-              <h2>
-                Build Your <span className="colorize">better result</span>
-              </h2>
-              <p>
-                We will share you a very secret tips to make of your result
-                better than others from my 8 years of experiences
-              </p>
-              <button className="btn">
-                Enrolled Now <BsArrowDownRight />
-              </button>
-              <div className="socials">
-                <a title="Facebook" target="_blank" href="/">
-                  <BsFacebook />
-                </a>
-                <a title="Twitter" target="_blank" href="/">
-                  <BsTwitter />
-                </a>
-                <a title="Join Our Discord Group" target="_blank" href="/">
-                  <BsDiscord />
-                </a>
+              <Fade left distance="30px">
+                <span>Get you best teacher from here</span>
+                <h2>
+                  Build Your <span className="colorize">better result</span>
+                </h2>
+                <p>
+                  We will share you a very secret tips to make of your result
+                  better than others from my 8 years of experiences
+                </p>
+                <button className="btn">
+                  Enrolled Now <BsArrowDownRight />
+                </button>
+              </Fade>
+              <Fade top distance="30px">
+                <div className="socials">
+                  <a title="Facebook" target="_blank" href="/">
+                    <BsFacebook />
+                  </a>
+                  <a title="Twitter" target="_blank" href="/">
+                    <BsTwitter />
+                  </a>
+                  <a title="Join Our Discord Group" target="_blank" href="/">
+                    <BsDiscord />
+                  </a>
+                </div>
+              </Fade>
+            </div>
+            <Fade right distance="30px">
+              <div className="hero-image">
+                <img
+                  src="https://favtutor.com/resources/images/banner_front.png"
+                  alt="heroImage"
+                />
               </div>
-            </div>
-            <div className="hero-image">
-              <img
-                src="https://favtutor.com/resources/images/banner_front.png"
-                alt="heroImage"
-              />
-            </div>
+            </Fade>
           </div>
         </div>
       </HeroContainer>

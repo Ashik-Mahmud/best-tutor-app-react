@@ -1,5 +1,6 @@
 import React from "react";
 import { GiTeacher } from "react-icons/gi";
+import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FooterImage from "../../Assets/Images/footer.png";
@@ -12,27 +13,29 @@ const Footer = () => {
         style={{ width: "100%", height: "300px", marginBottom: "-1rem" }}
         alt=""
       />
-      <FooterContainer>
-        <div className="container">
-          <div className="footer-content">
-            <p>&copy; Copyright by 2021</p>
-            <Link to="/" className="d-flex">
-              <div className="icon">
-                <GiTeacher />
-              </div>
-              <p>
-                Best <span className="colorize">Tutor</span>
-              </p>
-            </Link>
-            <ul className="ul">
-              <li>About</li>
-              <li>Terms & Policy</li>
-              <li>Success</li>
-              <li>Education</li>
-            </ul>
+      <Fade bottom distance="20px">
+        <FooterContainer>
+          <div className="container">
+            <div className="footer-content">
+              <p>&copy; Copyright by 2021</p>
+              <Link to="/" className="d-flex">
+                <div className="icon">
+                  <GiTeacher />
+                </div>
+                <p>
+                  Best <span className="colorize">Tutor</span>
+                </p>
+              </Link>
+              <ul className="ul">
+                <li>About</li>
+                <li>Terms & Policy</li>
+                <li>Success</li>
+                <li>Education</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </FooterContainer>
+        </FooterContainer>
+      </Fade>
     </footer>
   );
 };
