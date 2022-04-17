@@ -1,4 +1,9 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  TwitterAuthProvider,
+} from "firebase/auth";
 import React from "react";
 import { BsFacebook, BsGithub, BsGoogle, BsTwitter } from "react-icons/bs";
 import useFirebase from "../../../Hooks/useFirebase";
@@ -8,6 +13,23 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithSocial(googleProvider);
+  };
+
+  /* handle facebook sign in */
+  const handleFacebookSignIn = () => {
+    const facebookProvider = new FacebookAuthProvider();
+    signInWithSocial(facebookProvider);
+  };
+  /* handle github sign in */
+  const handleGithubSignIn = () => {
+    const githubProvider = new GithubAuthProvider();
+    signInWithSocial(githubProvider);
+  };
+
+  /* handle twitter sign in */
+  const handleTwitterSignIn = () => {
+    const twitterProvider = new TwitterAuthProvider();
+    signInWithSocial(twitterProvider);
   };
 
   return (
@@ -21,13 +43,25 @@ const SocialLogin = () => {
         >
           <BsGoogle />
         </button>
-        <button title="Sign In with Facebook" type="button">
+        <button
+          onClick={handleFacebookSignIn}
+          title="Sign In with Facebook"
+          type="button"
+        >
           <BsFacebook />
         </button>
-        <button title="Sign In with Github" type="button">
+        <button
+          onClick={handleGithubSignIn}
+          title="Sign In with Github"
+          type="button"
+        >
           <BsGithub />
         </button>
-        <button title="Sign In with Twitter" type="button">
+        <button
+          onClick={handleTwitterSignIn}
+          title="Sign In with Twitter"
+          type="button"
+        >
           <BsTwitter />
         </button>
       </div>

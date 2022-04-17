@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import RequireAuth from './Auth/RequireAuth';
@@ -18,6 +19,7 @@ function App() {
   const {user, isAuth, setIsAuth} = useFirebase();
   return (
     <>
+    <Toaster />
     <AuthContext.Provider value={{user, isAuth, setIsAuth}}>
       <Header />
       <Routes>
