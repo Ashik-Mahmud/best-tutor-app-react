@@ -23,16 +23,26 @@ const Hero = () => {
                   We will share you a very secret tips to make of your result
                   better than others from my 8 years of experiences
                 </p>
-                <button className="btn">
+                <a href="#services" className="btn">
                   Enrolled Now <BsArrowDownRight />
-                </button>
+                </a>
               </Fade>
               <Fade top distance="30px">
                 <div className="socials">
-                  <a title="Facebook" target="_blank" href="/">
+                  <a
+                    title="Facebook"
+                    target="_blank"
+                    href="https://web.facebook.com/ashikmahmud187/"
+                    rel="noreferrer"
+                  >
                     <BsFacebook />
                   </a>
-                  <a title="Twitter" target="_blank" href="/">
+                  <a
+                    title="Twitter"
+                    target="_blank"
+                    href="https://twitter.com/AshikMa36093377"
+                    rel="noreferrer"
+                  >
                     <BsTwitter />
                   </a>
                   <a title="Join Our Discord Group" target="_blank" href="/">
@@ -88,6 +98,7 @@ const HeroContainer = styled.section`
         gap: 1rem;
         margin: 1rem 0rem;
         right: 0%;
+        z-index: 1;
         top: 50%;
         flex-direction: column;
         a {

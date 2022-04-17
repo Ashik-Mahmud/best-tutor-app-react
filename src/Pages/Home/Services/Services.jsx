@@ -12,7 +12,7 @@ const Services = () => {
         <div className="container">
           <Fade bottom distance="20px">
             <div className="title">
-              <h2>What will you get? {services.length}</h2>
+              <h2>What will you get? </h2>
               <span>get your suitable packages and enrolled.</span>
             </div>
           </Fade>

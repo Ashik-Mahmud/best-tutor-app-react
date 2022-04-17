@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Fade } from "react-reveal";
 import styled from "styled-components";
+import swal from "sweetalert";
 
 const NewsLetter = () => {
+  const [email, setEmail] = useState("");
+  /* handle news letter form  */
+  const handleNewsLetter = (event) => {
+    event.preventDefault();
+    if (!email) return toast.error("Enter Your Email please.");
+    swal(
+      "Thanks for your submission!",
+      `We get your email ${email} `,
+      "success"
+    ).then(() => {
+      event.target.reset();
+    });
+  };
   return (
     <Fade bottom distance="30px">
       <NewsLetterContainer>
@@ -10,13 +25,18 @@ const NewsLetter = () => {
           <div className="newsletter-content">
             <h1>Stay Up to Date</h1>
             <span>Ensure you don't give you span message </span>
-            <form action="" className="form-wrapper">
+            <form
+              action=""
+              className="form-wrapper"
+              onSubmit={handleNewsLetter}
+            >
               <div className="input-group">
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Email enter"
+                  placeholder="Enter your email"
+                  onBlur={(event) => setEmail(event.target.value)}
                 />
                 <button className="btn">Send</button>
               </div>
