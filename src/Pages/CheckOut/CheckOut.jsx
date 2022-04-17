@@ -175,7 +175,7 @@ const CheckOutContainer = styled.section`
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      @media (max-width: 400px) {
+      @media (max-width: 500px) {
         flex-direction: column;
       }
       .input-group {
