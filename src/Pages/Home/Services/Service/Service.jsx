@@ -1,8 +1,10 @@
 import React from "react";
 import { BsCheckAll } from "react-icons/bs";
 import { Fade } from "react-reveal";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Service = () => {
+  const navigate = useNavigate();
   return (
     <Fade bottom distance="30px">
       <ServiceCard>
@@ -23,8 +25,16 @@ const Service = () => {
             </div>
           </div>
           <div className="btn-group">
-            <button className="btn">View Details</button>
-            <button className="d-flex btn">
+            <button
+              className="btn"
+              onClick={() => navigate("/service-detail/1")}
+            >
+              View Details
+            </button>
+            <button
+              className="d-flex btn"
+              onClick={() => navigate("/checkout")}
+            >
               Enrolled <BsCheckAll />
             </button>
           </div>

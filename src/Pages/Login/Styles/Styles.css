@@ -6,7 +6,8 @@
   min-height: 80vh;
   position: relative;
 }
-.form-wrapper {
+.signIn-wrapper .form-wrapper,
+.signUp-wrapper .form-wrapper {
   position: relative;
   width: 500px;
   padding: 2rem;
@@ -23,7 +24,8 @@
   margin: 1rem 0rem;
   font-size: 1.5rem;
 }
-.form-wrapper .input-group {
+.signIn-wrapper .form-wrapper .input-group,
+.signUp-wrapper .form-wrapper .input-group {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -31,7 +33,8 @@
   position: relative;
   align-items: flex-start;
 }
-.form-wrapper input {
+.signIn-wrapper .form-wrapper input,
+.signUp-wrapper .form-wrapper input {
   padding: 0.7rem;
   border: 1px solid #ccc;
   outline: none;
@@ -40,7 +43,8 @@
   border-radius: 5px;
   width: 100%;
 }
-.form-wrapper .input-group button {
+.signIn-wrapper .form-wrapper .input-group button,
+.signUp-wrapper .form-wrapper .input-group button {
   display: block;
   width: 100%;
   margin-top: 1rem;
