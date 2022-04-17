@@ -20,14 +20,20 @@ const CheckOut = () => {
 
   const formRef = useRef(null);
   const handleCheckOutForm = () => {
-    if (!email) return toast.error("Email field is required.");
+    if (!auth?.currentUser?.email) {
+      if (!email) return toast.error("Email field is required.");
+    }
     if (!phoneNumber) return toast.error("Phone number is required.");
     if (!address) return toast.error("Address field is required.");
     if (!transactionId) return toast.error("Transaction Id Must Required");
+    if (transactionId.length < 11)
+      return toast.error("Transaction Id must need 11 chars");
 
     swal(
       `Purchase Confirmed! ${auth?.currentUser?.displayName}`,
-      `We get your Transaction ${transactionId} and all the information you will touch you soon by your ${email} `,
+      `We get your Transaction ${transactionId} and all the information you will touch you soon by your ${
+        email || auth?.currentUser?.email
+      } `,
       "success"
     ).then(() => {
       formRef.current.reset();
