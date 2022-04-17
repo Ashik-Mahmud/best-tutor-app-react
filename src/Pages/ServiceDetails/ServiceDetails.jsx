@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BsChevronDoubleLeft } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Loading from "../../Components/Loading/Loading";
-import useServices from "../../Hooks/useServices";
+import useServiceDetail from "../../Hooks/useServiceDetail";
 const ServiceDetails = () => {
   const navigate = useNavigate();
   const { serviceId } = useParams();
-  const [serviceDetail, setServiceDetail] = useState({});
-  const [services, loading] = useServices();
-  useEffect(() => {
-    const findService = services?.find(
-      (service) => service.id === Number(serviceId)
-    );
-    setServiceDetail(findService);
-  }, [services, serviceId]);
+
+  const [serviceDetail, loading] = useServiceDetail(serviceId);
 
   return (
     <ServiceDetailsContainer>
@@ -49,6 +43,14 @@ const ServiceDetails = () => {
                     </div>
                   </div>
                   <p className="desc">{serviceDetail?.desc}</p>
+                  <div className="checkout-btn">
+                    <button
+                      onClick={() => navigate(`/checkout/${serviceDetail?.id}`)}
+                      className="btn"
+                    >
+                      Check Out Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </>
@@ -63,6 +65,10 @@ const ServiceDetails = () => {
 
 const ServiceDetailsContainer = styled.section`
   position: relative;
+  .checkout-btn button {
+    margin: 1rem 0rem;
+    border-radius: 5px;
+  }
   .card {
     padding: 1rem;
     position: relative;

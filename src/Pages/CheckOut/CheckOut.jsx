@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { BsCreditCard2Back } from "react-icons/bs";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import swal from "sweetalert";
+import useServiceDetail from "../../Hooks/useServiceDetail";
 import Service from "../Home/Services/Service/Service";
+import { auth } from "./../../Firebase/Firebase.config";
 const CheckOut = () => {
+  const navigate = useNavigate();
+  const { serviceId } = useParams();
+  const [serviceDetail] = useServiceDetail(serviceId);
+
+  /* handle form check out data  */
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [transactionId, setTransactionId] = useState("");
+  const [address, setAddress] = useState("");
+
+  const formRef = useRef(null);
+  const handleCheckOutForm = () => {
+    if (!email) return toast.error("Email field is required.");
+    if (!phoneNumber) return toast.error("Phone number is required.");
+    if (!address) return toast.error("Address field is required.");
+    if (!transactionId) return toast.error("Transaction Id Must Required");
+
+    swal(
+      `Purchase Confirmed! ${auth?.currentUser?.displayName}`,
+      `We get your Transaction ${transactionId} and all the information you will touch you soon by your ${email} `,
+      "success"
+    ).then(() => {
+      formRef.current.reset();
+      navigate("/blogs");
+    });
+  };
+
   return (
     <CheckOutContainer>
       <div className="container">
@@ -13,24 +45,49 @@ const CheckOut = () => {
         <div className="row">
           <div className="col">
             <h4>Edit You details</h4>
-            <form action="/" className="form-wrapper">
+            <form action="/" className="form-wrapper" ref={formRef}>
               <div className="group">
                 <div className="input-group">
                   <label htmlFor="name">Name</label>
-                  <input type="text" placeholder="Name" />
-                </div>{" "}
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    readOnly={auth?.currentUser?.displayName ? true : false}
+                    value={auth?.currentUser?.displayName || ""}
+                  />
+                </div>
                 <div className="input-group">
                   <label htmlFor="name">Email</label>
-                  <input type="email" placeholder="Email" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    readOnly={auth?.currentUser?.email ? true : false}
+                    value={
+                      auth?.currentUser?.email
+                        ? auth?.currentUser?.email
+                        : email
+                    }
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="group">
                 <div className="input-group">
                   <label htmlFor="name">Phone</label>
-                  <input type="text" placeholder="Phone" />
+                  <input
+                    type="text"
+                    placeholder="Phone"
+                    readOnly={auth?.currentUser?.phoneNumber ? true : false}
+                    value={
+                      auth?.currentUser?.phoneNumber
+                        ? auth?.currentUser?.phoneNumber
+                        : phoneNumber
+                    }
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
                 </div>
                 <div className="input-group">
-                  <label htmlFor="Division">Guardian Number</label>
+                  <label htmlFor="Division">Guardian Number (optional)</label>
                   <input type="text" placeholder="Guardian Number" />
                 </div>
               </div>
@@ -42,11 +99,16 @@ const CheckOut = () => {
                   cols="30"
                   rows="4"
                   placeholder="Address"
+                  onChange={(e) => setAddress(e.target.value)}
                 ></textarea>
               </div>
               <div className="input-group">
                 <label htmlFor="Division">Transaction ID</label>
-                <input type="text" placeholder="Transaction ID" />
+                <input
+                  type="text"
+                  placeholder="Transaction ID"
+                  onChange={(e) => setTransactionId(e.target.value)}
+                />
                 <small>
                   Put your transaction Id which one you get after payment.
                 </small>
@@ -55,7 +117,7 @@ const CheckOut = () => {
           </div>
           <div className="col">
             <p>You chosen -</p>
-            <Service />
+            <Service {...serviceDetail} purchase />
             <div className="checkout-info">
               <ul>
                 <li>
@@ -76,8 +138,8 @@ const CheckOut = () => {
                 </li>
               </ul>
             </div>
-            <button className="btn d-flex">
-              Send Purchase Request <BsCreditCard2Back />
+            <button className="btn d-flex" onClick={handleCheckOutForm}>
+              Confirm Purchase <BsCreditCard2Back />
             </button>
           </div>
         </div>
@@ -92,6 +154,9 @@ const CheckOutContainer = styled.section`
     padding: 0.4rem;
     background-color: #f8f8f8;
   }
+  input[readonly] {
+    background-color: #eee;
+  }
   .row {
     display: flex;
     justify-content: space-between;
@@ -104,6 +169,9 @@ const CheckOutContainer = styled.section`
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      @media (max-width: 400px) {
+        flex-direction: column;
+      }
       .input-group {
         width: 100%;
       }
@@ -160,6 +228,13 @@ const CheckOutContainer = styled.section`
           border-radius: 5px;
           width: 100%;
         }
+      }
+    }
+    @media (max-width: 800px) {
+      flex-direction: column;
+      .col,
+      .col:first-child {
+        width: 100%;
       }
     }
   }
