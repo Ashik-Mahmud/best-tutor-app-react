@@ -113,7 +113,7 @@ const SignIn = () => {
         <p>
           Don't have an Account?{" "}
           <Link to="/sign-up" className="colorize cursor-pointer">
-            Create
+            Sign Up
           </Link>
         </p>
         <SocialLogin />
