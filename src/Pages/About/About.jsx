@@ -16,10 +16,10 @@ const About = () => {
           <Fade left distance="40px">
             <div className="about-text">
               <h2>Who am I?</h2>
-              <h4>
+              <h3>
                 I am <span className="colorize">Ashik Mahmud</span> from Rangpur
                 Bangladesh
-              </h4>
+              </h3>
               <p>
                 Hey Guys! It's long day just I spent to make me the professional
                 developer. Now I am learning web developing from

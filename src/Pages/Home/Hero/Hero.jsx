@@ -101,6 +101,10 @@ const HeroContainer = styled.section`
         z-index: 1;
         top: 50%;
         flex-direction: column;
+        @media (max-width: 600px) {
+          position: relative;
+          flex-direction: row;
+        }
         a {
           width: 40px;
           height: 40px;

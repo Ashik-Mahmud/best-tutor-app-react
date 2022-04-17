@@ -1,11 +1,12 @@
 import React from "react";
 import { GiTeacher } from "react-icons/gi";
 import { Fade } from "react-reveal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import FooterImage from "../../Assets/Images/footer.png";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer id="footer">
       <img
@@ -27,7 +28,7 @@ const Footer = () => {
                 </p>
               </Link>
               <ul className="ul">
-                <li>About</li>
+                <li onClick={() => navigate("/about")}>About</li>
                 <li>Terms & Policy</li>
                 <li>Success</li>
                 <li>Education</li>

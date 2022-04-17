@@ -31,6 +31,9 @@ const BlogsContainer = styled.section`
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 2rem;
     align-items: flex-start;
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 export default Blogs;
