@@ -1,4 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { VscSignIn } from "react-icons/vsc";
@@ -28,11 +31,23 @@ const SignIn = () => {
   const handleLoginForm = async (event) => {
     event.preventDefault();
     if (!email) return toast.error("Email field is required.");
-    if (!password) return toast.error("Password field is required.");
+    if (!isReset) {
+      if (!password) return toast.error("Password field is required.");
+    }
 
     await signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         toast.success("Logged In successfully done.");
+      })
+      .catch((err) => toast.error(err.message.split(":")[1]));
+  };
+
+  /* handle reset password  */
+  const handleResetPassword = () => {
+    if (!email) return toast.error("You need put email here");
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success(`We sent you email with password reset link on ${email}`);
       })
       .catch((err) => toast.error(err.message.split(":")[1]));
   };
@@ -85,15 +100,15 @@ const SignIn = () => {
           </span>
         </p>
         <div className="input-group">
-          <button className="btn d-flex">
-            {isReset ? (
-              <>Reset Password</>
-            ) : (
-              <>
-                Sign In <VscSignIn />
-              </>
-            )}
-          </button>
+          {isReset ? (
+            <button onClick={handleResetPassword} type="button" className="btn">
+              Reset Password
+            </button>
+          ) : (
+            <button className="btn d-flex">
+              Sign In <VscSignIn />
+            </button>
+          )}
         </div>
         <p>
           Don't have an Account?{" "}
