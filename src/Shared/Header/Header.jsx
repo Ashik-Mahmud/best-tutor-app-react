@@ -61,49 +61,54 @@ const Header = () => {
                     }
                     alt={user?.displayName}
                   />
-                  <div>
-                    <span className="">
-                      {user?.displayName ? (
-                        <>
-                          <span className="d-flex">
-                            {user?.displayName}{" "}
-                            {user?.emailVerified ? (
-                              <small className="verify-status" title="Verified">
-                                <FiCheckCircle />
-                              </small>
-                            ) : (
-                              <small
-                                className="notVerify-status"
-                                title="Not Verified"
-                              >
-                                <AiOutlineCloseCircle />
-                              </small>
-                            )}
-                          </span>
-                        </>
-                      ) : (
-                        <small className="d-flex gap not-name">
-                          Not Available
-                          <span
-                            title="Reload"
-                            className="colorize cursor-pointer "
-                            onClick={() => window.location.reload()}
-                          >
-                            <BiRefresh />
-                          </span>
-                        </small>
-                      )}
-                    </span>
-                    <small title={user?.email}>
-                      {user?.email
-                        ? user?.email.slice(0, 10) + "..."
-                        : "not available"}
-                    </small>
+                  <div className="profile-content d-flex gap">
+                    <div>
+                      <span className="">
+                        {user?.displayName ? (
+                          <>
+                            <span className="d-flex">
+                              {user?.displayName}{" "}
+                              {user?.emailVerified ? (
+                                <small
+                                  className="verify-status"
+                                  title="Verified"
+                                >
+                                  <FiCheckCircle />
+                                </small>
+                              ) : (
+                                <small
+                                  className="notVerify-status"
+                                  title="Not Verified"
+                                >
+                                  <AiOutlineCloseCircle />
+                                </small>
+                              )}
+                            </span>
+                          </>
+                        ) : (
+                          <small className="d-flex gap not-name">
+                            Not Available
+                            <span
+                              title="Reload"
+                              className="colorize cursor-pointer "
+                              onClick={() => window.location.reload()}
+                            >
+                              <BiRefresh />
+                            </span>
+                          </small>
+                        )}
+                      </span>
+                      <small title={user?.email}>
+                        {user?.email
+                          ? user?.email.slice(0, 10) + "..."
+                          : "not available"}
+                      </small>
+                    </div>
+                    <button className="btn logOut d-flex" onClick={LogOut}>
+                      <AiOutlineLogout /> Log out
+                    </button>
                   </div>
                 </div>
-                <button className="btn logOut d-flex" onClick={LogOut}>
-                  <AiOutlineLogout /> Log out
-                </button>
               </>
             ) : (
               <button
@@ -199,6 +204,7 @@ const NavBar = styled.header`
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
     .not-name {
       display: flex;
       align-items: center;
@@ -228,6 +234,37 @@ const NavBar = styled.header`
     }
     small {
       display: block;
+    }
+
+    .profile-content {
+      position: relative;
+      gap: 1rem;
+    }
+    @media (max-width: 530px) {
+      img {
+        cursor: pointer;
+      }
+      .profile-content {
+        position: absolute;
+        width: 200px;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        background-color: #f9f9f9;
+        flex-direction: column;
+        z-index: 4;
+        border-radius: 10px;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+    }
+    &:hover .profile-content {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0px);
+      pointer-events: all;
     }
   }
 `;
