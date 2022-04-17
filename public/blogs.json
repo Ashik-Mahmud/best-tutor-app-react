@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Difference between authorization and authentication?",
-    "desc": "In the digital world, authentication and authorization accomplish these same goals. Authentication is used to verify that users really are who they represent themselves to be. Once this has been confirmed, authorization is then used to grant the user permission to access different levels of information and perform specific functions, depending on the rules established for different types of users.",
+    "desc": "There are tons of differences has between Authorization and Authenticate. Like Authentication is process to verifying what someone is and Authorization is process to determines which resource user can access. Authentication works through password, biometrics, and one-time in which one provide and give the user one the other hand of authorization works through organization which one handle all the things. Authentication is first step to give a good identity and all the necessary information one the other hand authorization take place after authentication done. Authentication kind of partial changeable by the user but authorization isn't visible or can't changeable by the user. ",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknCStbMFbCfZ4MGisC7Lz-Ypa1dAH833sqXPWMnOAU8Iwhl3PchZFN5sZ6Mgz9zWwYRk&usqp=CAU"
   },
   {

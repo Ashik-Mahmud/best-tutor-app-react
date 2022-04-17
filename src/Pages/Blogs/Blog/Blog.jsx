@@ -20,7 +20,7 @@ const Blog = ({ title, image, desc }) => {
                   className="colorize cursor-pointer"
                   onClick={() => setBigText((prev) => !prev)}
                 >
-                  {bigText ? "Read Less" : "Read More"}
+                  {bigText ? "See Less" : "See More"}
                 </span>
               </>
             ) : (
