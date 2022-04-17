@@ -16,7 +16,8 @@
   margin: 2rem 0rem;
 }
 @media (max-width: 600px) {
-  .form-wrapper {
+  .signIn-wrapper .form-wrapper,
+  .signUp-wrapper .form-wrapper {
     width: 100%;
   }
 }
