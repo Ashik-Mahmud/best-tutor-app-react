@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
 import { BsGrid, BsGrid1X2 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Header = () => {
   const [isNav, setIsNav] = useState(false);
+  const navigate = useNavigate();
   return (
     <NavBar>
       <div className="container">
@@ -27,7 +28,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="btn-group">
-            <button className="btn d-flex">
+            <button className="btn d-flex" onClick={() => navigate("/sign-in")}>
               <AiOutlineLogin /> Login
             </button>
           </div>
