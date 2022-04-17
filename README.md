@@ -15,6 +15,8 @@ This is Home Tutor react web application here just previews home tutor services 
 - React Styled Component
 - React Swiper for sliding
 - React Reveal Animation
+- React Sweet Alerts
+- Axios
 
 ## Required Features
 
