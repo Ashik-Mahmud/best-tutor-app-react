@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Ashik Mahmud",
+    "school": "Buet Engineer University",
+    "text": "Answering these questions in a testimonial is crucial for establishing social proof and provides an example of how your product can get the client where they want to be.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT032Lf4WVvs-Y1pLlmbulbavuvM7MyyTypYDchI8D-fml6p5u3O6pU-WembmgkaoagoQ8&usqp=CAU"
+  },
+  {
+    "id": 2,
+    "name": "Rashed Khan",
+    "school": "Dhaka Engineer University",
+    "text": "I really happy to stay the sir coaching center which one is the best teaching institute I ever seen so if you want to learn something of your own this coaching center recommended for you.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr7yehUBbGnFPU7NOS-NAjlfK-YXAMxsjoYsrfazSN09it7msYctcVWGcp3roEFEyh3mo&usqp=CAU"
+  },
+  {
+    "id": 3,
+    "name": "Anik Rahman",
+    "school": "Rajshahi Engineer University",
+    "text": "Anyone looking at your testimonials page can see things from a like-minded point of view, as all of your current and previous clients were once potential customers, just like them. ",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3llGjM6HDq8fNOKahlf_2j4TNeLYL9TIxG1O_QPMu9LhwwCGLTPGsORBxKH2LtKWYIr0&usqp=CAU"
+  },
+  {
+    "id": 4,
+    "name": "Hannan Akanda",
+    "school": "Draffodil University",
+    "text": "Sir, I am really happy to stay of with you. you are the best teacher I ever seen my life. so Thanks sir Your  understandable knowledge is awesome and awesome.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjmnLMQfvoM8gtXw-f0jf4F8BMnoxMW7mlhOslW2CsIz1N8fEy2LgVuF7O5Dp2kWhH8yU&usqp=CAU"
+  },
+  {
+    "id": 5,
+    "name": "Khandakar Sajjad",
+    "school": "Buet Engineer University",
+    "text": "Finally, having previous customers clearly state that they had a positive experience with you and/or would recommend you in the future leaves your future customers feeling happy and confident that you are someone they want to work with.",
+    "image": "https://pngimg.com/uploads/thinking_man/thinking_man_PNG11613.png"
+  }
+]

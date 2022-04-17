@@ -5,9 +5,11 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination"; // import required modules
 import { Swiper, SwiperSlide } from "swiper/react";
+import useReviews from "../../../Hooks/useReviews";
 import Review from "./Review/Review";
 
 const Reviews = () => {
+  const [reviews] = useReviews();
   return (
     <ReviewsContainer>
       <div className="container">
@@ -45,21 +47,11 @@ const Reviews = () => {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <Review />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review />
-            </SwiperSlide>
+            {reviews.map((review) => (
+              <SwiperSlide key={review.id}>
+                <Review {...review} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

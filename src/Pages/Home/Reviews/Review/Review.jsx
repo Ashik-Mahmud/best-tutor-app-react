@@ -2,24 +2,16 @@ import React from "react";
 import { Fade } from "react-reveal";
 import styled from "styled-components";
 
-const Review = () => {
+const Review = ({ text, image, name, school }) => {
   return (
     <Fade bottom distance="20px">
       <ReviewContainer className="review">
-        <p>
-          Sir, I am really happy to stay of with you. you are the best teacher I
-          ever seen my life. so Thanks sir Your understandable knowledge is
-          awesome and awesome.
-        </p>
+        <p>{text}</p>
         <div className="reviewer">
-          <img
-            width={80}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkfF6nBhidhIzL330CYtg70I8tpDBGJ2YjBPnE9D9gY0iLmGu563WBIab4KBexSDv7kG8&usqp=CAU"
-            alt="reviewer"
-          />
+          <img width={80} src={image} alt={name} />
           <div className="details">
-            <h4>Ashik Mahmud</h4>
-            <small>Student, BUET University.</small>
+            <h4>{name}</h4>
+            <small>Student, {school}.</small>
           </div>
         </div>
       </ReviewContainer>
@@ -45,6 +37,7 @@ const ReviewContainer = styled.div`
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    border: 4px solid #ccc;
   }
 `;
 export default Review;
